@@ -5,14 +5,14 @@ namespace UserService.BO.DTO
 {
     public class ApiResponse<T>
     {
-        public HttpStatusCode StatusCode { get; set; }
+        public int StatusCode { get; set; }
         public bool Success { get; set; }
         public string? Message { get; set; }
         public T? Data { get; set; }
 
         public ApiResponse(HttpStatusCode statusCode, bool success, string? message = default, T? data = default)
         {
-            StatusCode = statusCode;
+            StatusCode = (int)statusCode;
             Success = success;
             Message = message;
             Data = data;
@@ -20,7 +20,7 @@ namespace UserService.BO.DTO
 
         public ApiResponse(HttpStatusCode statusCode, bool success, string message)
         {
-            this.StatusCode = statusCode;
+            this.StatusCode = (int)statusCode;
             Success = success;
             Message = message;
         }
